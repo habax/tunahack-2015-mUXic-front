@@ -8,7 +8,7 @@
  * Controller of the muxicApp
  */
 angular.module('muxicApp')
-  .controller('MainCtrl', function ($scope,$http, $timeout) {
+  .controller('MainCtrl', function ($scope,$http, $timeout, $cookies, _) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -34,8 +34,10 @@ angular.module('muxicApp')
 
     $scope.getProfile = function(){
 
+      //      $cookies.remove('mySongList');
+
       $scope.profile = {
-        name: "StarFucks",
+        name: "Starbucks",
         place: "Plaza San Luis",
         //image: "http://placehold.it/128x128",
         image:"images/star.jpg",
@@ -56,6 +58,7 @@ angular.module('muxicApp')
 
           if(response.data.items.length > 0){
 
+            _.each(response.data.items,function(song,key){ song.track.order = key; });
             switch(who) {
               case 'cat':
                 $scope.data.catalog.items = [];
@@ -100,6 +103,44 @@ angular.module('muxicApp')
     };
 
 
+/*
+    function addCookieSong(trackId){
+
+
+
+      var mySongList = $cookies.get('mySongList');
+
+      if(mySongList != undefined){ // use the list
+        mySongList = JSON.parse(mySongList);
+
+        var song = _.find(mySongList , function(song){ return song.id == trackId; });
+        if(song == undefined ){
+          mySongList.push({id:trackId,order:''});
+        }
+      }else { // create the list
+        mySongList = [{id:trackId,order:''}]
+      }
+
+      //save
+      $cookies.put('mySongList',JSON.stringify(mySongList));
+    }
+
+    function updateCokieSong(playNow) {
+      var mySongList = $cookies.get('mySongList');
+
+      _.each(mySongList,function(value,key){
+        if(value.order == ''){
+          var idLast = _.findLastIndex(playNow.items, {id: value.id});  // search id track
+
+          if(idLast != undefined){
+            value.order = playNow.items[idLast].track.order; // set id Track
+          }
+        }
+      });
+
+      $cookies.put('mySongList', JSON.stringify(mySongList));
+    };
+    */
 
 
 
@@ -121,15 +162,36 @@ angular.module('muxicApp')
         then(function(response) {
           $scope.status = response.status;
           $scope.sendingUp = false;
+          //addCookieSong(trackId);
 
-          $scope.initPlayNow();
           $timeout(function() {
+            $scope.initPlayNow();
             angular.element(document.querySelector('#button-play-now')).trigger('click');
-          }, 1000);
+          }, 3000);
 
         }, function(response) {
           $scope.status = response.status;
           $scope.sendingUp = false;
         });
     };
+
+/*
+    $scope.isAdded = function(trackId){
+      var isAdded = false;
+      var mySongList = $cookies.get('mySongList');
+
+      if(mySongList != undefined) { // use the list
+        mySongList = JSON.parse(mySongList);
+        var idLast = _.findLastIndex(mySongList, {id: trackId});  // search id track
+
+        if(idLast != -1){
+          isAdded = true;
+        }
+      }
+
+      return isAdded
+    };
+
+*/
+
   });

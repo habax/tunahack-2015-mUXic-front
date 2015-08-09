@@ -11,7 +11,7 @@
       </div>
       <div class="media-body padding-10-left">
 
-        <div class="pull-right">
+        <div class="pull-right" ng-if="!isAdded(song.track.id)">
           <button type="button" class="btn btn-success margin-10-right margin-10-left"
                   ng-click="addSong(song.track.id)"
                   ng-class="{disabled:sendingUp}"
@@ -30,6 +30,13 @@
       </div>
     </div>
 
+  </li>
+  <li>
+    <button type="button" class="btn btn-success btn-block"
+            ng-click="initPlayNow()"
+      >
+      <i class="fa fa-download fa-2x" ></i> Descargar Catalogo
+    </button>
   </li>
   <li ng-show=" data.catalog.items.length == 0">
     <div>
