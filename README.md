@@ -10,3 +10,5 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+# tunahack-2015-mUXic-front
+proyecto del evento tunahack SLP 2015 front end, Angular+HTML5+CSS3+Sass+Grunt
