@@ -1,0 +1,42 @@
+<ul class="padding-50-bottom padding-none-left"
+    ng-class="{'muxic-loader':isLoading}"
+    ng-init="initCatalog()"
+  >
+  <li ng-repeat="song in data.catalog.items" class="track">
+    <div class="media padding-10-top padding-10-bottom underline margin-none">
+      <div class="image media-left imgLiquidFill imgLiquid" img-liquid style="width: 64px; height: 64px;">
+        <img class="media-object img-responsive"  alt="{{song.track.name}}"
+             ng-src="{{song.track.album.images[2].url}}"
+          >
+      </div>
+      <div class="media-body padding-10-left">
+
+        <div class="pull-right">
+          <button type="button" class="btn btn-success margin-10-right margin-10-left"
+                  ng-click="addSong(song.track.id)"
+                  ng-class="{disabled:sendingUp}"
+            >
+            <i class="fa fa-play-circle fa-2x" ></i>
+          </button>
+
+        </div>
+
+        <h4 class="media-heading">{{song.track.name}}</h4>
+
+            <span ng-repeat="artist in song.track.artists">
+            {{artist.name}}
+            </span>
+
+      </div>
+    </div>
+
+  </li>
+  <li ng-show=" data.catalog.items.length == 0">
+    <div>
+      <h3>
+        No se encontraron canciones en cat&aacute;logo.
+        <br><small>Por favor intente m&aacute;s tarde.</small>
+      </h3>
+    </div>
+  </li>
+</ul>

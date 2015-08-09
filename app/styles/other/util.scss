@@ -1,0 +1,55 @@
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "other/functions.scss";
+
+ul{
+  list-style: none;
+}
+
+.underline {
+  border-bottom: 1px solid lightgray
+}
+
+.underline-2x {
+  border-bottom: 2px solid gray
+}
+
+
+
+
+/* backgrounds and images*/
+.bk-image {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bk-image-fixed {
+  background-attachment: fixed;
+}
+
+.bk-img1, .bk-img2, .bk-img3, .bk-img4, .bk-img4 {
+  background-color: #cdcdcd;
+}
+
+.bk-img1 {
+  background-image: url('../images/mUXic-blur.jpg');
+}
+
+
+.bk-img2 {
+  background-image: url('../images/muxic-2.jpg');
+
+}
+
+.bk-img3 {
+  background-image: url('../images/muxic-3.jpg');
+
+}
+
+
+.text-shadow-white{
+  text-shadow: white 0.1em 0.1em 0.2em;
+}

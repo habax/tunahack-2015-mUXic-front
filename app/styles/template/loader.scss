@@ -1,0 +1,19 @@
+.loader{
+  min-width: 100px;
+  min-height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100px;
+
+  > div,
+  > button,
+  > li{
+    visibility: hidden;
+  }
+}
+
+.muxic-loader{
+  @extend .loader;
+  background-size: 50px;
+  background-image: url(../../images/loader.svg);
+}

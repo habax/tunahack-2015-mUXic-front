@@ -1,0 +1,20 @@
+<!--profile-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="padding-10-top padding-10-bottom underline-2x bk-image bk-img1"
+         ng-controller="MainCtrl"
+         ng-init="getProfile()">
+
+      <div class="media">
+        <div class="media-left">
+          <img class="media-object" ng-src="{{profile.image}}" alt="{{profile.name}}">
+        </div>
+        <div class="media-body text-shadow-white padding-10-left">
+          <h2 class="media-heading padding-10-top">{{profile.name}}</h2>
+          <h4>{{profile.place}}</h4>
+          {{profile.teaser}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<ul class="padding-50-bottom padding-none-left"
+    ng-class="{'muxic-loader':isLoading}"
+    ng-init="initPlayNow()"
+  >
+  <li ng-repeat="song in data.playnow.items" class="track">
+    <div class="media padding-10-top padding-10-bottom underline margin-none">
+      <div class="image media-left imgLiquidFill imgLiquid" img-liquid style="width: 64px; height: 64px;">
+        <img class="media-object img-responsive"  alt="{{song.track.name}}"
+             ng-src="{{song.track.album.images[2].url}}"
+          >
+      </div>
+      <div class="media-body padding-10-left">
+
+        <h4 class="media-heading">{{song.track.name}}</h4>
+
+            <span ng-repeat="artist in song.track.artists">
+            {{artist.name}}
+            </span>
+
+      </div>
+    </div>
+
+  </li>
+  <li ng-show="data.playnow.items.length == 0">
+    <div>
+      <h3>
+        No se encontraron canciones reproduciendo.
+        <br><small>Agregue del cat&aacute;logo.</small>
+      </h3>
+    </div>
+  </li>
+</ul>

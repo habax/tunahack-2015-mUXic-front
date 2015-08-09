@@ -1,0 +1,40 @@
+<div class="catalog" >
+
+  <!-- Tab Control-->
+  <div class="controls main-menu navbar navbar-default navbar-fixed-bottom navbar-inverse" role="navigation">
+    <div class="container">
+      <ul class="nav  nav-justified list-inline">
+        <li ng-class="{active:tabs[0].active}">
+          <a ng-click="tabs[0].active = true">
+            <i class="fa fa-music fa-2x"></i>
+            <span class="hidden-xs">Cat&aacute;logo</span>
+          </a>
+        </li>
+        <li ng-class="{active:tabs[1].active}">
+          <a id="button-play-now" ng-click="tabs[1].active = true">
+            <i class="fa fa-play-circle fa-2x"></i>
+            <span class="hidden-xs">Tocando</span>
+          </a>
+        </li>
+        <li ng-class="{active:tabs[2].active}">
+          <a ng-click="tabs[2].active = true">
+            <i class="fa fa-comment fa-2x"></i>
+            <span class="hidden-xs">Sugerencia</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Tab Control-->
+  <div class="music container">
+    <div class="row">
+      <tabset>
+        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+          <div ng-include="tab.content"></div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,25 @@
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+
+
+@media (max-width: $screen-xs-max) {
+  .main-menu {
+    .nav > li {
+      display: table-cell;
+      width: 1%;
+    }
+  }
+}
+
+.profile {
+  .media-object {
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .media-body {
+    color: #262626;
+    //background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(92,184,92, 0.25);
+  }
+
+}

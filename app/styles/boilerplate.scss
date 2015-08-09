@@ -1,0 +1,26 @@
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+
+body {
+  min-width: 350px;
+}
+
+.music {
+  .track{
+
+    &.ng-enter{
+      animation: bounceInLeft 1s;
+    }
+
+    &.ng-enter-active {
+    }
+
+    .media-left, .media > .pull-left {
+      padding-left: 70px;
+    }
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
